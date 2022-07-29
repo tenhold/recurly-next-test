@@ -1,14 +1,9 @@
 import { useRef } from 'react';
-import { CardElement, useRecurly } from '@recurly/react-recurly';
+import CardElement from './CardElement';
 
-// const CardElement = dynamic(() => {
-//   return import('@recurly/react-recurly')
-//     .then((mod) => mod.CardElement);
-// }, { ssr: false });
-
-const PaymentForm = () => {
+const PaymentForm = ({ cardElement }) => {
+  recurly.configure(process.env.NEXT_PUBLIC_RECURLY_PUBLIC_KEY);
   const formRef = useRef();
-  const recurly = useRecurly();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -25,7 +20,9 @@ const PaymentForm = () => {
     <form onSubmit={handleSubmit} ref={formRef}>
       <input type="text" data-recurly="first_name" placeholder="First name" />
       <input type="text" data-recurly="last_name" placeholder="Last name" />
-      <CardElement />
+
+      <div id="recurly-elements">{cardElement}</div>
+      <input type="hidden" name="recurly-token" data-recurly="token" />
       <button className='text-3xl text-indigo-300	font-bold underline'>Submit</button>
     </form>
   );
