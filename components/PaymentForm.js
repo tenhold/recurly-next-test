@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 import { CardElement, useRecurly } from '@recurly/react-recurly';
 
@@ -27,7 +26,7 @@ const PaymentForm = () => {
       <input type="text" data-recurly="first_name" placeholder="First name" />
       <input type="text" data-recurly="last_name" placeholder="Last name" />
       <CardElement />
-      <button>Submit</button>
+      <button className='text-3xl text-indigo-300	font-bold underline'>Submit</button>
     </form>
   );
 };
