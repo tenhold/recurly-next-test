@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import CardElement from './CardElement';
 
 const PaymentForm = ({ cardElement }) => {
   recurly.configure(process.env.NEXT_PUBLIC_RECURLY_PUBLIC_KEY);

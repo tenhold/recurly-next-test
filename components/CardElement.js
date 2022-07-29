@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function CardElement() {
   const elements = recurly.Elements();
   const cardElement = elements.CardElement();
